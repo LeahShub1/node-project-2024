@@ -6,7 +6,7 @@ const app = express();
 app.use(express.json());
 app.use('/customers', customerRouter);
 
-let token; 
+let token;
 
 describe('Customer API', () => {
   it('should signup a new customer', async () => {
@@ -29,7 +29,7 @@ describe('Customer API', () => {
         password: 'password123'
       });
     expect(response.statusCode).toBe(200);
-    token = response.body.token; 
+    token = response.body.token;
   });
 
   it('should get all customers', async () => {
@@ -43,14 +43,14 @@ describe('Customer API', () => {
   it('should get a customer by ID', async () => {
     const response = await request(app)
       .get('/customers/your_customer_id_here')
-      .set('Authorization', `Bearer ${token}`); 
+      .set('Authorization', `Bearer ${token}`);
     expect(response.statusCode).toBe(200);
   });
 
   it('should add a new customer', async () => {
     const response = await request(app)
       .post('/customers/addCustomer')
-      .set('Authorization', `Bearer ${token}`) 
+      .set('Authorization', `Bearer ${token}`)
       .send({
         name: 'leah',
         email: 'leah@example.com',

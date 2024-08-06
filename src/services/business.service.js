@@ -1,26 +1,3 @@
-// const Business = require('../models/business.model');
-// const BusinessService = {
-//     getBusinessesByName: async (name) => {
-//         return await Business.findOne({ name: name });
-//     },
-//     // getBusinessById: async (id) => {
-//     //     return await Business.findById(id);
-//     // },
-//     createBusiness: async (data) => {
-//         const businessr = new Business(data)
-//         return await businessr.save();
-//     },
-//     updateBusiness: async (name, data) => {
-//         return await Business.findOneAndUpdate({ name: name }, data, { new: true });
-//     },
-//     // deleteBusiness: async (id) => {
-//     //     return await Business.findByIdAndDelete(id);
-//     // }
-// }
-// module.exports = BusinessService;
-
-
-
 const BusinessRepository = require('../repositories/business.repository');
 
 const BusinessService = {

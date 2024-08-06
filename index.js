@@ -5,8 +5,6 @@ const cors = require('cors');
 const swaggerSetup = require('./src/swagger');
 swaggerSetup(app);
 
-const logger = require('./src/logger');
-
 const meetingRouter = require('./src/router/meeting.router');
 const customerRouter = require('./src/router/customers.router');
 const businessRouter = require('./src/router/business.router');
@@ -16,10 +14,10 @@ const port = process.env.PORT || 3000;
 app.use(express.json());
 app.use(cors());
 
-app.use('/meetings', meetingRouter)
-app.use('/customers', customerRouter)
-app.use('/businesses', businessRouter)
-app.use('/services', serviceRouter)
+app.use('/meetings', meetingRouter);
+app.use('/customers', customerRouter);
+app.use('/businesses', businessRouter);
+app.use('/services', serviceRouter);
 
 const connectDB = async () => {
     try {
@@ -35,5 +33,5 @@ const connectDB = async () => {
 connectDB();
 
 app.listen(port, () => {
-    console.log(`Example app listening on port ${port}`)
-})
+    console.log(`Example app listening on port ${port}`);
+});

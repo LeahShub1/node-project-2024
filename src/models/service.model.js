@@ -4,7 +4,7 @@ const serviceSchema = new mongoose.Schema({
     price:{type : Number, required: true},
     duration:{type : String, required: true},
     description:{type : String},
-})
+});
 
 const Service = mongoose.model('Service', serviceSchema);
 module.exports = Service;

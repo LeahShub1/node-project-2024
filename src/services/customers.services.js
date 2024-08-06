@@ -49,7 +49,7 @@ const CustomerService = {
         const customer = await CustomerRepository.findByName(data.name);
         if (customer) {
             if (await bcrypt.compare(data.password, customer.password)) {
-                const token = generateAuthToken(customer._id, customer.isAdmin)
+                const token = generateAuthToken(customer._id, customer.isAdmin);
                 return { customer, token };
             }
             throw new Error('worng paswword');
@@ -59,4 +59,3 @@ const CustomerService = {
 };
 
 module.exports = CustomerService;
-

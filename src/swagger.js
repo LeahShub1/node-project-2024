@@ -1,7 +1,6 @@
 const swaggerJsdoc = require('swagger-jsdoc');
 const swaggerUi = require('swagger-ui-express');
 
-
 const options = {
   swaggerDefinition: {
     openapi: '3.0.0',
@@ -11,7 +10,7 @@ const options = {
       description: 'API Documentation for your Node.js TypeScript application',
     },
   },
-  apis: ['./controllers/*.js'], 
+  apis: ['./controllers/*.js'],
 };
 
 const specs = swaggerJsdoc(options);

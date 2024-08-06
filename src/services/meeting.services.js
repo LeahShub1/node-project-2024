@@ -1,7 +1,6 @@
 const MeetingRepository = require('../repositories/meeting.repository');
 const  {sendEmail}  = require('./emailService');
 
-
 const meetingService = {
     getAllMeetings: async () => {
         return await MeetingRepository.getAllMeetings();

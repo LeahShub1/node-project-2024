@@ -26,7 +26,7 @@ const CustomerController = {
             const customers = await CustomerService.getAllCustomers();
             res.status(200).json(customers);
         } catch (err) {
-            res.status(500).json({ error: 'Internal server error' });
+            res.status(500).json({ error: err.message });
         }
     },
     getCustomerById: async (req, res) => {
@@ -38,7 +38,7 @@ const CustomerController = {
                 res.status(200).json(customer);
             }
         } catch (err) {
-            res.status(500).json({ error: 'Internal server error' });
+            res.status(500).json({ error: err.message });
         }
     },
     createCustomer: async (req, res) => {
@@ -49,7 +49,7 @@ const CustomerController = {
             if (error.code === 11000 && error.keyPattern && error.keyPattern.id) {
                 res.status(500).json({ error: 'Customer with same id already exists' });
             } else {
-                res.status(500).json({ error: 'Internal server error' });
+                res.status(500).json({ error: error.message });
             }
         }
     },
@@ -58,7 +58,7 @@ const CustomerController = {
             const deletedCustomers = await CustomerService.deleteAllCustomers();
             res.status(200).json(deletedCustomers);
         } catch (err) {
-            res.status(500).json({ error: 'Internal server error' });
+            res.status(500).json({ error: err.message });
         }
     }
 };

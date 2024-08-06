@@ -1,6 +1,4 @@
 const mongoose = require('mongoose');
-// const jwt = require('jsonwebtoken');
-// require('dotenv').config();
 
 const customersSchema = new mongoose.Schema({
 
@@ -11,13 +9,9 @@ const customersSchema = new mongoose.Schema({
     isAdmin: {type: Boolean,default: false}
 });
 
-// customersSchema.methods.generateAuthToken = function() {
-//     const token = jwt.sign({ _id: this._id, isAdmin: this.isAdmin }, process.env.ACCESS_TOKEN_SECRET);
-//     return token;
-// };
 customersSchema.pre('save', async function(next) {
     if (!this.isNew) return next();
-    
+
     try {
         const lastcustomer = await this.constructor.findOne({}, {}, { sort: { 'id': -1 } });
         if (!lastcustomer) {
